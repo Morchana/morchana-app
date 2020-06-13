@@ -32,14 +32,14 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>morchana</string>
-				<string></string>
+				<string/>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>48</string>
 	<key>CodePushDeploymentKey</key>
-	<string></string>
+	<string/>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>

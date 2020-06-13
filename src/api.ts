@@ -3,7 +3,7 @@ import { userPrivateData } from './state/userPrivateData'
 import nanoid from 'nanoid'
 import { API_URL, SSL_PINNING_CERT_NAME } from './config'
 import { encryptMessage, refetchDDCPublicKey } from './utils/crypto'
-import { fetch } from 'react-native-ssl-pinning'
+// import { fetch } from 'react-native-ssl-pinning'
 
 export const getAnonymousHeaders = () => {
   const authToken = userPrivateData.getData('authToken')
