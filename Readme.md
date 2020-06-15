@@ -4,18 +4,26 @@
 
 ## Getting Started
 
-First follow this instruction to setup react-native
-https://reactnative.dev/docs/getting-started
+#### Setup Dev Environments
 
-Create .env file by rename from .env.dev
+There are 2 types of dev environments.
 
-### iOS
+1. using Expo CLI
+2. using React Native CLI In this project, we use the 2nd option.
+
+To setup your dev environment, please follow **React Native CLI Quickstart**
+instructions inside this page. https://reactnative.dev/docs/environment-setup
+
+Make sure you can run the plain project on both iOS & Android with
+`react-native init`
+
+### Run iOS project
 
 1. Clone `git clone https://govshare.data.go.th/morchana/morchana-app`
 2. Install Dependencies `cd morchana-app && yarn && (cd ios; pod install)`
 3. Start `npx react-native run-ios`
 
-### Android
+### Run Android project
 
 1. Clone `git clone https://govshare.data.go.th/morchana/morchana-app`
 2. Install Dependencies `cd morchana-app && yarn`
