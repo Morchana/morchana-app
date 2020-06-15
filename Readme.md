@@ -21,7 +21,7 @@ Make sure you can run the plain project on both iOS & Android with
 
 1. Clone `git clone https://govshare.data.go.th/morchana/morchana-app`
 2. Install Dependencies `cd morchana-app && yarn && (cd ios; pod install)`
-3. Open Xcode and then build with `iPhone SE (2nd generation)` simulator
+3. Open Xcode and then build and run with `iPhone SE (2nd generation)` simulator
 
 ### Run Android project
 
