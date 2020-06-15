@@ -325,18 +325,18 @@ PODS:
     - React
   - RNScreens (1.0.0-alpha.23):
     - React
-  - RNSentry (1.4.5):
+  - RNSentry (1.3.3):
     - React
-    - Sentry (~> 5.1.4)
+    - Sentry (~> 4.4.0)
   - RNSslPinning (1.4.6):
     - React
   - RNSVG (12.1.0):
     - React
   - RNVectorIcons (6.6.0):
     - React
-  - Sentry (5.1.4):
-    - Sentry/Core (= 5.1.4)
-  - Sentry/Core (5.1.4)
+  - Sentry (4.4.3):
+    - Sentry/Core (= 4.4.3)
+  - Sentry/Core (4.4.3)
   - SSZipArchive (2.2.3)
   - Yoga (1.14.0)
 
@@ -615,14 +615,14 @@ SPEC CHECKSUMS:
   RNI18n: e2f7e76389fcc6e84f2c8733ea89b92502351fd8
   RNPermissions: ad71dd4f767ec254f2cd57592fbee02afee75467
   RNScreens: f28b48b8345f2f5f39ed6195518291515032a788
-  RNSentry: 0a70359ddacbfb9b1cbbb0971e54065b9f70ac57
+  RNSentry: 86baf0c87120cd5eb491d073989f8cbc1a2174c6
   RNSslPinning: ef39607682381e7ddce1d8ae16ae516306e49163
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
-  Sentry: 74f2ad93a20a5567a1badaedf5b3f60b142ad082
+  Sentry: 14bdd673870e8cf64932b149fad5bbbf39a9b390
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: e301019d8fd688853bd9020aa98b48497ba609ec
+PODFILE CHECKSUM: b4065db0ee0c04990972f57aadb2b058dc371882
 
 COCOAPODS: 1.9.3

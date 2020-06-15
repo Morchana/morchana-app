@@ -14,7 +14,6 @@
 		1F51727EE9454D609CF6186E /* DBHelvethaicaX-Li.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 090846D618034DC3A1BF67B9 /* DBHelvethaicaX-Li.ttf */; };
 		2852A1D5467442B4ABC8BCDE /* DBHelvethaicaX-Blk.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D9A40DE154D42909FAAABD1 /* DBHelvethaicaX-Blk.ttf */; };
 		2DEC04DBB57741BF8EDD3550 /* DBHelvethaicaX-It.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9E6C21F42BB49F3A5F22BAB /* DBHelvethaicaX-It.ttf */; };
-		363000CD9DDB41857B999BF8 /* libPods-ThaiAlert.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5925E1C6AD5C7A1BCDF510AE /* libPods-ThaiAlert.a */; };
 		39F35AF94DEE46B49222E38C /* DBHelvethaicaX-LiIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 198210C6E770401BB26824FE /* DBHelvethaicaX-LiIt.ttf */; };
 		40D279449FED4F8C9856C21F /* DBHelvethaicaX-Bd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FD7211C87B146C082620E64 /* DBHelvethaicaX-Bd.ttf */; };
 		6307B650B6BE44DC9030AF83 /* DBHelvethaicaX-UlLiIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B91AB136F043460DBC28DD54 /* DBHelvethaicaX-UlLiIt.ttf */; };
@@ -22,6 +21,7 @@
 		839C411D23084F93008AF109 /* RNBackgroundFetch+AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 839C411C23084F93008AF109 /* RNBackgroundFetch+AppDelegate.m */; };
 		8AAF0852247594CA00DF6761 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8AAF0854247594CA00DF6761 /* InfoPlist.strings */; };
 		9061E0BAF85344DF89EE3628 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 59734E132FCC4616AE67D544 /* libz.tbd */; };
+		96C821309D310261B934536A /* libPods-ThaiAlert.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 894FED09DB10033149C416ED /* libPods-ThaiAlert.a */; };
 		98D101F8D70F49B38A5B30C1 /* DBHelvethaicaX-BdIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C258F860B2FF442CB80806B6 /* DBHelvethaicaX-BdIt.ttf */; };
 		AC463FAB5EA642DDA0E5AB58 /* DBHelvethaicaX-ThinIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D8C2F038AAB4E62AD96DA82 /* DBHelvethaicaX-ThinIt.ttf */; };
 		CD0F7327770B4E0A81D603D2 /* DBHelvethaicaX-Reg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90742424F7014571866EA086 /* DBHelvethaicaX-Reg.ttf */; };
@@ -66,9 +66,7 @@
 		445983F9907B4DB896E90AAC /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		4DD441D0C38B4FF8B5740C5D /* Prompt-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Prompt-Thin.ttf"; path = "../assets/fonts/Prompt-Thin.ttf"; sourceTree = "<group>"; };
 		4EFCC0FF17D042048ECFFD23 /* Prompt.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Prompt.ttf; path = ../assets/fonts/Prompt.ttf; sourceTree = "<group>"; };
-		5925E1C6AD5C7A1BCDF510AE /* libPods-ThaiAlert.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThaiAlert.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59734E132FCC4616AE67D544 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		6151D8906133AC0A2CD562B2 /* Pods-ThaiAlert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThaiAlert.release.xcconfig"; path = "Target Support Files/Pods-ThaiAlert/Pods-ThaiAlert.release.xcconfig"; sourceTree = "<group>"; };
 		6753B51E68A04ABD984F59EF /* Prompt-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Prompt-Bold.ttf"; path = "../assets/fonts/Prompt-Bold.ttf"; sourceTree = "<group>"; };
 		68B1246771F242BCA47AB26B /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		6B48A915A0484AF69100C6DF /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
@@ -80,6 +78,7 @@
 		7BB682EFA96D4181BE320868 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		8207C214E52047A1870A3F21 /* DBHelvethaicaX-BlkIt.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DBHelvethaicaX-BlkIt.ttf"; path = "../assets/fonts/DBHelvethaicaX-BlkIt.ttf"; sourceTree = "<group>"; };
 		839C411C23084F93008AF109 /* RNBackgroundFetch+AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RNBackgroundFetch+AppDelegate.m"; path = "../node_modules/react-native-background-fetch/ios/RNBackgroundFetch/RNBackgroundFetch+AppDelegate.m"; sourceTree = "<group>"; };
+		894FED09DB10033149C416ED /* libPods-ThaiAlert.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThaiAlert.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AAF0853247594CA00DF6761 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8AAF0855247594D600DF6761 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8C3008BFAAB04B0CBDFAC845 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
@@ -92,12 +91,12 @@
 		A93DDE0CF1104FC3A82164B9 /* DBHelvethaicaX-Med.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DBHelvethaicaX-Med.ttf"; path = "../assets/fonts/DBHelvethaicaX-Med.ttf"; sourceTree = "<group>"; };
 		A969BEA4F091401388A12E15 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		B1DC8D8810EF48428CC97DA6 /* Prompt-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Prompt-Light.ttf"; path = "../assets/fonts/Prompt-Light.ttf"; sourceTree = "<group>"; };
+		B63F66C0EE57DF0148B8BCEF /* Pods-ThaiAlert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThaiAlert.release.xcconfig"; path = "Target Support Files/Pods-ThaiAlert/Pods-ThaiAlert.release.xcconfig"; sourceTree = "<group>"; };
 		B6D06397551B4853A79FDEF8 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		B91AB136F043460DBC28DD54 /* DBHelvethaicaX-UlLiIt.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DBHelvethaicaX-UlLiIt.ttf"; path = "../assets/fonts/DBHelvethaicaX-UlLiIt.ttf"; sourceTree = "<group>"; };
 		C258F860B2FF442CB80806B6 /* DBHelvethaicaX-BdIt.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DBHelvethaicaX-BdIt.ttf"; path = "../assets/fonts/DBHelvethaicaX-BdIt.ttf"; sourceTree = "<group>"; };
 		C3E8E3AEED4C496094B5BACC /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		CB7B6B7E2CF44E8AABAFEC23 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
-		D011573BB959F7C7112C953A /* Pods-ThaiAlert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThaiAlert.debug.xcconfig"; path = "Target Support Files/Pods-ThaiAlert/Pods-ThaiAlert.debug.xcconfig"; sourceTree = "<group>"; };
 		D6FA3B581FF54C45BD556396 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		D92A024D24360E0E00367D58 /* ThaiAlert.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ThaiAlert.entitlements; path = ThaiAlert/ThaiAlert.entitlements; sourceTree = "<group>"; };
 		D92CAD602443823200A99087 /* thaialert-staging.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "thaialert-staging.cer"; sourceTree = "<group>"; };
@@ -108,6 +107,7 @@
 		D9790A306A14407D95088CA1 /* Prompt-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Prompt-LightItalic.ttf"; path = "../assets/fonts/Prompt-LightItalic.ttf"; sourceTree = "<group>"; };
 		D988E8EE24301732009500DC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D9E6C21F42BB49F3A5F22BAB /* DBHelvethaicaX-It.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "DBHelvethaicaX-It.ttf"; path = "../assets/fonts/DBHelvethaicaX-It.ttf"; sourceTree = "<group>"; };
+		DD3EA6D02121FF0D0B4FE170 /* Pods-ThaiAlert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThaiAlert.debug.xcconfig"; path = "Target Support Files/Pods-ThaiAlert/Pods-ThaiAlert.debug.xcconfig"; sourceTree = "<group>"; };
 		E84E96F9CF18434ABD271A01 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		F27A3CF1E48C46D6BE032711 /* Prompt-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Prompt-SemiBold.ttf"; path = "../assets/fonts/Prompt-SemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,7 +118,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9061E0BAF85344DF89EE3628 /* libz.tbd in Frameworks */,
-				363000CD9DDB41857B999BF8 /* libPods-ThaiAlert.a in Frameworks */,
+				96C821309D310261B934536A /* libPods-ThaiAlert.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,7 +169,7 @@
 			children = (
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				59734E132FCC4616AE67D544 /* libz.tbd */,
-				5925E1C6AD5C7A1BCDF510AE /* libPods-ThaiAlert.a */,
+				894FED09DB10033149C416ED /* libPods-ThaiAlert.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -273,8 +273,8 @@
 		B34B7080F9EB5D7AC70E967D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D011573BB959F7C7112C953A /* Pods-ThaiAlert.debug.xcconfig */,
-				6151D8906133AC0A2CD562B2 /* Pods-ThaiAlert.release.xcconfig */,
+				DD3EA6D02121FF0D0B4FE170 /* Pods-ThaiAlert.debug.xcconfig */,
+				B63F66C0EE57DF0148B8BCEF /* Pods-ThaiAlert.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -286,14 +286,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ThaiAlert" */;
 			buildPhases = (
-				74C72A00A2ECE75DCFF5BCF6 /* [CP] Check Pods Manifest.lock */,
+				CDFD05EDB85814033505D24B /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				839C280B22D65FFB00BD4FDC /* ShellScript */,
 				8FF8B7A04A4244C4A1FEE396 /* Upload Debug Symbols to Sentry */,
-				53F52A80FC435A08943552FB /* [CP] Copy Pods Resources */,
+				4146DABA2925E45DB366A5F1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -386,7 +386,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export SENTRY_PROPERTIES=sentry.properties\nexport NODE_BINARY=node\n../node_modules/@sentry/cli/bin/sentry-cli react-native xcode ../node_modules/react-native/scripts/react-native-xcode.sh\n\nif [ \"${CONFIGURATION}\" == \"Release\" ]; then\n    echo \"Delete sourcemaps $CONFIGURATION_BUILD_DIR\"\n    rm \"$CONFIGURATION_BUILD_DIR/$EXECUTABLE_NAME.app/main.jsbundle.map\"\nfi\n\n";
 		};
-		53F52A80FC435A08943552FB /* [CP] Copy Pods Resources */ = {
+		4146DABA2925E45DB366A5F1 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -434,28 +434,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ThaiAlert/Pods-ThaiAlert-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		74C72A00A2ECE75DCFF5BCF6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ThaiAlert-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		839C280B22D65FFB00BD4FDC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -487,6 +465,28 @@
 			shellPath = /bin/sh;
 			shellScript = "export SENTRY_PROPERTIES=sentry.properties\n../node_modules/@sentry/cli/bin/sentry-cli upload-dsym";
 		};
+		CDFD05EDB85814033505D24B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ThaiAlert-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -517,7 +517,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D011573BB959F7C7112C953A /* Pods-ThaiAlert.debug.xcconfig */;
+			baseConfigurationReference = DD3EA6D02121FF0D0B4FE170 /* Pods-ThaiAlert.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -549,7 +549,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6151D8906133AC0A2CD562B2 /* Pods-ThaiAlert.release.xcconfig */;
+			baseConfigurationReference = B63F66C0EE57DF0148B8BCEF /* Pods-ThaiAlert.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
