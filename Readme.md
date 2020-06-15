@@ -26,9 +26,10 @@ Make sure you can run the plain project on both iOS & Android with
 ### Run Android project
 
 1. Clone `git clone https://govshare.data.go.th/morchana/morchana-app`
-2. Install Dependencies `cd morchana-app && yarn`
-3. Setup Firebase API key in `current_key` key/value inside
-   `google-services.json` file by asking other dev.
+2. Setup Firebase API key in `current_key` key/value inside
+   `google-services.json` file by asking other dev. (NOTE: do this before next
+   step)
+3. Install Dependencies `cd morchana-app && yarn`
 4. Open an emulator with Android 9 from `Android Studio => ADV Manager`
 5. Start `npx react-native run-android`
 
