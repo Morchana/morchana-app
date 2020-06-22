@@ -8,22 +8,18 @@ import { COLORS } from '../../styles'
 import { doctorSize, styles } from './const'
 import { OnboardHeader } from './OnboadHeader'
 
-import I18n from '../../../i18n/i18n';
+import I18n from '../../../i18n/i18n'
 
 export const OnboardNotification = () => {
   const navigation = useNavigation()
 
   const { showSpinner, hide } = useHUD()
 
-  const checkPerms = async () => {
+  useEffect(() => {
     if (pushNotification.isConfigured) {
       navigation.navigate('OnboardProgressing')
     }
-  }
-
-  useEffect(() => {
-    checkPerms()
-  }, [])
+  }, [navigation])
 
   const handleSubmit = async () => {
     showSpinner()
@@ -71,7 +67,13 @@ export const OnboardNotification = () => {
               resizeMode="contain"
               style={{ height: doctorSize }}
             />
-            <Text style={I18n.currentLocale() == 'en'? styles.titleEN : styles.title}>{I18n.t('let_doc_notify_you')}</Text>
+            <Text
+              style={
+                I18n.currentLocale() == 'en' ? styles.titleEN : styles.title
+              }
+            >
+              {I18n.t('let_doc_notify_you')}
+            </Text>
             <Text style={styles.subtitle}>
               {I18n.t('when_you_are_closed_to_risky_ppl')}
             </Text>
@@ -81,7 +83,7 @@ export const OnboardNotification = () => {
             containerStyle={{
               width: '100%',
               padding: 30,
-              alignSelf: 'center'
+              alignSelf: 'center',
             }}
             title={I18n.t('turn_on_notification')}
             style={{

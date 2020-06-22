@@ -14,7 +14,6 @@ import { PrimaryButton } from '../../components/Button'
 import { useHUD } from '../../HudView'
 import { backgroundTracking } from '../../services/background-tracking'
 import { COLORS } from '../../styles'
-import { isSmallDevice } from '../../utils/responsive'
 import { doctorSize, styles } from './const'
 import { OnboardHeader } from './OnboadHeader'
 import { normalize } from 'react-native-elements'
@@ -39,23 +38,22 @@ export const OnboardLocation = () => {
 
   const { showSpinner, hide } = useHUD()
 
-  const checkPerms = async () => {
-    const perms = await Promise.all([
-      check(LOCATION_PERMISSION),
-      check(ACTIVITY_PERMISSION),
-    ])
-    if (perms[0] === 'granted' && perms[1] === 'granted') {
-      await backgroundTracking.start()
-      navigation.navigate('OnboardProgressing')
-    } else {
-      setLocationPerm(perms[0])
-      setActivityPerm(perms[1])
-    }
-  }
-
   useEffect(() => {
+    const checkPerms = async () => {
+      const perms = await Promise.all([
+        check(LOCATION_PERMISSION),
+        check(ACTIVITY_PERMISSION),
+      ])
+      if (perms[0] === 'granted' && perms[1] === 'granted') {
+        await backgroundTracking.start()
+        navigation.navigate('OnboardProgressing')
+      } else {
+        setLocationPerm(perms[0])
+        setActivityPerm(perms[1])
+      }
+    }
     checkPerms()
-  }, [])
+  }, [navigation])
 
   const handleSubmit = async () => {
     showSpinner()
@@ -120,13 +118,7 @@ export const OnboardLocation = () => {
               resizeMode="contain"
               style={{ height: doctorSize }}
             />
-            <Text
-              style={
-                I18n.currentLocale() == 'en' ? styles.titleEN : styles.title
-              }
-            >
-              {I18n.t('pls_grant_permission')}
-            </Text>
+            <Text style={styles.title}>{I18n.t('pls_grant_permission')}</Text>
             <Text style={styles.subtitle}>
               {I18n.t('let_doc_estimate_your_risk')}
             </Text>
