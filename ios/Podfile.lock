@@ -304,7 +304,7 @@ PODS:
     - React-Core
   - RNBackgroundFetch (2.7.1):
     - React
-  - RNBackgroundGeolocation (3.7.0):
+  - RNBackgroundGeolocation (3.4.2):
     - CocoaLumberjack (~> 3.5.1)
     - React
   - RNCAsyncStorage (1.11.0):
@@ -389,6 +389,7 @@ DEPENDENCIES:
   - React-RCTSettings (from `../node_modules/react-native/Libraries/Settings`)
   - React-RCTText (from `../node_modules/react-native/Libraries/Text`)
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
+  - ReactCommon/jscallinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - rn-fetch-blob (from `../node_modules/rn-fetch-blob`)
   - RNBackgroundFetch (from `../node_modules/react-native-background-fetch`)
@@ -605,7 +606,7 @@ SPEC CHECKSUMS:
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   rn-fetch-blob: f065bb7ab7fb48dd002629f8bdcb0336602d3cba
   RNBackgroundFetch: 8d8d66b47eafcb9e772b2eb95057939038b3ef95
-  RNBackgroundGeolocation: 7e6d7f7627f47602e07612814734a1644359256b
+  RNBackgroundGeolocation: 8f0a20788100fbf08987d80f2053ae6eba79c566
   RNCAsyncStorage: d059c3ee71738c39834a627476322a5a8cd5bf36
   RNCClipboard: 8148e21ac347c51fd6cd4b683389094c216bb543
   RNCPushNotificationIOS: 4d9ffd08f00ef6c1029ebbf4d72fc711eca3ff01
@@ -623,6 +624,6 @@ SPEC CHECKSUMS:
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: b4065db0ee0c04990972f57aadb2b058dc371882
+PODFILE CHECKSUM: ffe1b6eb7ca9c481805eea085028b56be50ecd4c
 
 COCOAPODS: 1.9.3
