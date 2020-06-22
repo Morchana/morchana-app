@@ -1,6 +1,6 @@
 import { RSA } from 'react-native-rsa-native'
 import { API_URL, SSL_PINNING_CERT_NAME } from '../config'
-// import { fetch } from 'react-native-ssl-pinning'
+import { fetch } from 'react-native-ssl-pinning'
 import { userPrivateData } from '../state/userPrivateData'
 
 let publicKey
