@@ -10,6 +10,7 @@ PODS:
     - AppCenter/Crashes
     - AppCenterReactNativeShared
     - React
+<<<<<<< HEAD
   - AppCenter/Analytics (3.2.0):
     - AppCenter/Core
   - AppCenter/Core (3.2.0)
@@ -17,12 +18,25 @@ PODS:
     - AppCenter/Core
   - AppCenterReactNativeShared (3.0.3):
     - AppCenter/Core (= 3.2.0)
+=======
+  - AppCenter/Analytics (3.3.2):
+    - AppCenter/Core
+  - AppCenter/Core (3.3.2)
+  - AppCenter/Crashes (3.3.2):
+    - AppCenter/Core
+  - AppCenterReactNativeShared (3.1.1):
+    - AppCenter/Core (= 3.3.2)
+>>>>>>> daa151de4006ca74c65b1096cbd265573434a08e
   - Base64 (1.1.2)
   - boost-for-react-native (1.63.0)
   - CocoaLumberjack (3.5.3):
     - CocoaLumberjack/Core (= 3.5.3)
   - CocoaLumberjack/Core (3.5.3)
+<<<<<<< HEAD
   - CodePush (6.2.1):
+=======
+  - CodePush (6.2.0):
+>>>>>>> daa151de4006ca74c65b1096cbd265573434a08e
     - Base64 (~> 1.1)
     - JWT (~> 3.0.0-beta.7)
     - React
@@ -231,7 +245,11 @@ PODS:
     - React-cxxreact (= 0.61.5)
     - React-jsi (= 0.61.5)
   - React-jsinspector (0.61.5)
+<<<<<<< HEAD
   - react-native-camera (3.30.0):
+=======
+  - react-native-camera (3.21.0):
+>>>>>>> daa151de4006ca74c65b1096cbd265573434a08e
     - React
     - react-native-camera/RCT (= 3.30.0)
     - react-native-camera/RN (= 3.30.0)
@@ -551,6 +569,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+<<<<<<< HEAD
   AppCenter: ca66175050d538b157959382dd43f1ab96cdab84
   appcenter-analytics: 4fdc885acb8a3bfac835515a8b9610d054ba8b9f
   appcenter-core: 84a1c69361d10272bf08b2ff906c37f4e422b940
@@ -560,6 +579,17 @@ SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
   CodePush: 3968d9e97ed70a1c8b029266dd5b6aa69cee4b0a
+=======
+  AppCenter: aba7de06e4c2184f90dc84f7866bd07f82427d69
+  appcenter-analytics: 46b4bb2832834a198ba6c4058b4eb335386c1063
+  appcenter-core: 765878f5c300907bb70dbb8e956c5a74df7ca23d
+  appcenter-crashes: 66b533f4e2a2278ddbd9369614fe18f0d7f58e47
+  AppCenterReactNativeShared: b9fa50d999e830e03f086f487b1aa0f9772088c1
+  Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
+  boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
+  CodePush: 3285d39e9865e0a37a415417402bf568ce49268a
+>>>>>>> daa151de4006ca74c65b1096cbd265573434a08e
   ContactTracerReactNative: 5b01f94268e609784ee40bd4171e4e81e37360e0
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   FBLazyVector: aaeaf388755e4f29cd74acbc9e3b8da6d807c37f
@@ -568,9 +598,15 @@ SPEC CHECKSUMS:
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
   JWT: 05028b9624591bba9681bb57df2c5f95fa258bad
   JwtUtils: 2817dfce1dcf39afe1f3715bf7170c94ca2d22fb
+<<<<<<< HEAD
   Permission-Camera: afad27bf90337684d4a86f3825112d648c8c4d3b
   Permission-LocationAlways: 155e6251b757b380f6354737cae8e8d59c472495
   Permission-Motion: 099bc32191080089d1cb839cbae96d621a589c8f
+=======
+  Permission-Camera: a8f6007d17b02ed8a2d6bac1c37c2fd5df9b4e8a
+  Permission-LocationAlways: 738e3b24333d52c87361804bb0a1641de014c405
+  Permission-Motion: 6d251146daf1102ebe143a2618adc18946353ad2
+>>>>>>> daa151de4006ca74c65b1096cbd265573434a08e
   RCTRequired: b153add4da6e7dbc44aebf93f3cf4fcae392ddf1
   RCTTypeSafety: 9aa1b91d7f9310fc6eadc3cf95126ffe818af320
   React: b6a59ef847b2b40bb6e0180a97d0ca716969ac78
@@ -581,9 +617,15 @@ SPEC CHECKSUMS:
   React-jsi: cb2cd74d7ccf4cffb071a46833613edc79cdf8f7
   React-jsiexecutor: d5525f9ed5f782fdbacb64b9b01a43a9323d2386
   React-jsinspector: fa0ecc501688c3c4c34f28834a76302233e29dc0
+<<<<<<< HEAD
   react-native-camera: eeb5b5f4ba4c1365fed3563af8a72007cbad7aab
   react-native-config: ae9ef3bdbf539f2d14ebaf4ebeba508f766e066a
   react-native-get-random-values: 2b7500cdb68066aba87cdccd97067c29e16ffe95
+=======
+  react-native-camera: 4e12e877b8fef60b0914a49c942a0f32479e5b50
+  react-native-config: 7db9b96479164dfd7b2be68eb9079e08279511c4
+  react-native-get-random-values: 148a42f97f2ce180a52d219144e83c278d4fe24b
+>>>>>>> daa151de4006ca74c65b1096cbd265573434a08e
   react-native-image-editor: 9361a215c3991cafbe5e7f28cbbad6e72c9c2705
   react-native-image-picker: 6a850c41f57f0848d918c2a77aedd7aa272ffa30
   react-native-maps: 6e499eee4eabf422ba8b6f94e993cc768bf35153
@@ -624,6 +666,10 @@ SPEC CHECKSUMS:
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
+<<<<<<< HEAD
 PODFILE CHECKSUM: ffe1b6eb7ca9c481805eea085028b56be50ecd4c
+=======
+PODFILE CHECKSUM: bc4886b9f93c021c2564f6d47c84802875e2f25f
+>>>>>>> daa151de4006ca74c65b1096cbd265573434a08e
 
 COCOAPODS: 1.9.3

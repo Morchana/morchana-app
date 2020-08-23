@@ -30,7 +30,11 @@ target "ThaiAlert" do
   pod "React-jsi", :path => "../node_modules/react-native/ReactCommon/jsi"
   pod "React-jsiexecutor", :path => "../node_modules/react-native/ReactCommon/jsiexecutor"
   pod "React-jsinspector", :path => "../node_modules/react-native/ReactCommon/jsinspector"
+<<<<<<< HEAD
   pod 'ReactCommon/jscallinvoker', :path => "../node_modules/react-native/ReactCommon"
+=======
+  pod "ReactCommon/jscallinvoker", :path => "../node_modules/react-native/ReactCommon"
+>>>>>>> daa151de4006ca74c65b1096cbd265573434a08e
   pod "ReactCommon/turbomodule/core", :path => "../node_modules/react-native/ReactCommon"
   pod "Yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
 

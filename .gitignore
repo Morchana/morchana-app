@@ -46,8 +46,5 @@ ios/Pods/
 *.hprof
 .env.production
 .env
-หมอชนะ.app.dSYM.zip
-appcenter-config.json
-AppCenter-Config.plist
-sentry.properties
-google-services.json
+ThaiAlert.app.dSYM.zip
+# sentry.properties
