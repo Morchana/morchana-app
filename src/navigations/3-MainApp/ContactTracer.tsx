@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  Dimensions,
+  //Dimensions,
   StatusBar,
   StyleSheet,
   View,
@@ -37,6 +37,7 @@ export class ContactTracer extends React.Component<
   statusText = ''
   advertiserEventSubscription = null
   nearbyDeviceFoundEventSubscription = null
+  nearbyBeaconFoundEventSubscription = null //Added by Urng
 
   constructor(props) {
     super(props)
@@ -58,11 +59,11 @@ export class ContactTracer extends React.Component<
     // TODO: Use the global userId instead of the local one. Remove User.tsx file if done
     const userId = nanoid().substr(0, 20)
     this.setState({ userId: userId })
-    NativeModules.ContactTracerModule.setUserId(userId).then(userId => {})
+    NativeModules.ContactTracerModule.setUserId(userId).then((_userId) => {})
 
     // Check if Tracer Service has been enabled
     NativeModules.ContactTracerModule.isTracerServiceEnabled()
-      .then(enabled => {
+      .then((enabled) => {
         this.setState({
           isServiceEnabled: enabled,
         })
@@ -73,11 +74,11 @@ export class ContactTracer extends React.Component<
 
     // Check if BLE is available
     NativeModules.ContactTracerModule.initialize()
-      .then(result => {
+      .then((_result) => {
         return NativeModules.ContactTracerModule.isBLEAvailable()
       })
       // For NativeModules.ContactTracerModule.isBLEAvailable()
-      .then(isBLEAvailable => {
+      .then((isBLEAvailable) => {
         if (isBLEAvailable) {
           this.appendStatusText('BLE is available')
           // BLE is available, continue requesting Location Permission
@@ -88,7 +89,7 @@ export class ContactTracer extends React.Component<
         }
       })
       // For requestLocationPermission()
-      .then(locationPermissionGranted => {
+      .then((locationPermissionGranted) => {
         this.setState({
           isLocationPermissionGranted: locationPermissionGranted,
         })
@@ -102,7 +103,7 @@ export class ContactTracer extends React.Component<
         }
       })
       // For NativeModules.ContactTracerModule.tryToTurnBluetoothOn()
-      .then(bluetoothOn => {
+      .then((bluetoothOn) => {
         this.setState({
           isBluetoothOn: bluetoothOn,
         })
@@ -118,7 +119,7 @@ export class ContactTracer extends React.Component<
         }
       })
       // For NativeModules.ContactTracerModule.isMultipleAdvertisementSupported()
-      .then(supported => {
+      .then((supported) => {
         if (supported)
           this.appendStatusText('Multitple Advertisement is supported')
         else this.appendStatusText('Multitple Advertisement is NOT supported')
@@ -135,6 +136,11 @@ export class ContactTracer extends React.Component<
         'NearbyDeviceFound',
         this.onNearbyDeviceFoundReceived,
       )
+
+      this.nearbyBeaconFoundEventSubscription = eventEmitter.addListener(
+        'NearbyBeaconFound',
+        this.onNearbyBeaconFoundReceived,
+      )
     } else {
       this.advertiserEventSubscription = DeviceEventEmitter.addListener(
         'AdvertiserMessage',
@@ -144,6 +150,11 @@ export class ContactTracer extends React.Component<
       this.nearbyDeviceFoundEventSubscription = DeviceEventEmitter.addListener(
         'NearbyDeviceFound',
         this.onNearbyDeviceFoundReceived,
+      )
+
+      this.nearbyBeaconFoundEventSubscription = DeviceEventEmitter.addListener(
+        'NearbyBeaconFound',
+        this.onNearbyBeaconFoundReceived,
       )
     }
   }
@@ -184,14 +195,23 @@ export class ContactTracer extends React.Component<
    * Event Emitting Handler
    */
 
-  onAdvertiserMessageReceived = e => {
-    this.appendStatusText(e['message'])
+  onAdvertiserMessageReceived = (e) => {
+    this.appendStatusText(e.message)
   }
 
-  onNearbyDeviceFoundReceived = e => {
+  onNearbyDeviceFoundReceived = (e) => {
     this.appendStatusText('')
-    this.appendStatusText('***** RSSI: ' + e['rssi'])
-    this.appendStatusText('***** Found Nearby Device: ' + e['name'])
+    this.appendStatusText('***** RSSI: ' + e.rssi)
+    this.appendStatusText('***** Found Nearby Device: ' + e.name)
+    this.appendStatusText('')
+  }
+
+  onNearbyBeaconFoundReceived = (e) => {
+    this.appendStatusText('')
+    // this.appendStatusText('***** UUID: ' + e['uuid'])
+    this.appendStatusText('***** Found Beacon: ' + e.uuid)
+    this.appendStatusText('***** major: ' + e.major)
+    this.appendStatusText('***** minor: ' + e.minor)
     this.appendStatusText('')
   }
 

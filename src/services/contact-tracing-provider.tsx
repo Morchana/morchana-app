@@ -35,6 +35,7 @@ export class ContactTracerProvider extends React.Component<
   private statusText = ''
   private advertiserEventSubscription = null
   private nearbyDeviceFoundEventSubscription = null
+  private nearbyBeaconFoundEventSubscription = null
 
   constructor(props) {
     super(props)
@@ -81,7 +82,7 @@ export class ContactTracerProvider extends React.Component<
     this.setState({ anonymousId: anonymousId })
     NativeModules.ContactTracerModule.setUserId(
       anonymousId,
-    ).then((anonymousId) => {})
+    ).then((_anonymousId) => {})
 
     // Check if Tracer Service has been enabled
     NativeModules.ContactTracerModule.isTracerServiceEnabled()
@@ -96,7 +97,7 @@ export class ContactTracerProvider extends React.Component<
 
     // Check if BLE is available
     await NativeModules.ContactTracerModule.initialize()
-      .then((result) => {
+      .then((_result) => {
         return NativeModules.ContactTracerModule.isBLEAvailable()
       })
       // For NativeModules.ContactTracerModule.isBLEAvailable()
@@ -214,6 +215,11 @@ export class ContactTracerProvider extends React.Component<
         'NearbyDeviceFound',
         this.onNearbyDeviceFoundReceived,
       )
+
+      this.nearbyBeaconFoundEventSubscription = eventEmitter.addListener(
+        'NearbyBeaconFound',
+        this.onNearbyBeaconFoundReceived,
+      )
     } else {
       console.log('add listener')
       this.advertiserEventSubscription = DeviceEventEmitter.addListener(
@@ -224,6 +230,11 @@ export class ContactTracerProvider extends React.Component<
       this.nearbyDeviceFoundEventSubscription = DeviceEventEmitter.addListener(
         'NearbyDeviceFound',
         this.onNearbyDeviceFoundReceived,
+      )
+
+      this.nearbyBeaconFoundEventSubscription = DeviceEventEmitter.addListener(
+        'NearbyBeaconFound',
+        this.onNearbyBeaconFoundReceived,
       )
     }
   }
@@ -240,6 +251,10 @@ export class ContactTracerProvider extends React.Component<
     if (this.nearbyDeviceFoundEventSubscription != null) {
       this.nearbyDeviceFoundEventSubscription.remove()
       this.nearbyDeviceFoundEventSubscription = null
+    }
+    if (this.nearbyBeaconFoundEventSubscription != null) {
+      this.nearbyBeaconFoundEventSubscription.remove()
+      this.nearbyBeaconFoundEventSubscription = null
     }
   }
 
@@ -261,23 +276,40 @@ export class ContactTracerProvider extends React.Component<
    */
 
   onAdvertiserMessageReceived = (e) => {
-    this.appendStatusText(e['message'])
+    this.appendStatusText(e.message)
   }
 
   onNearbyDeviceFoundReceived = (e) => {
     this.appendStatusText('')
-    this.appendStatusText('***** RSSI: ' + e['rssi'])
-    this.appendStatusText('***** Found Nearby Device: ' + e['name'])
+    this.appendStatusText('***** RSSI: ' + e.rssi)
+    this.appendStatusText('***** Found Nearby Device: ' + e.name)
     this.appendStatusText('')
     /* broadcast */
-    console.log('broadcast:' + e['name'])
-    bluetoothScanner.add(e['name'])
+    console.log('broadcast:' + e.name)
+    bluetoothScanner.add(e.name)
     if (Date.now() - bluetoothScanner.oldestItemTS > 30 * 60 * 1000) {
       bluetoothScanner.upload()
     }
   }
 
-  render() {    
+  onNearbyBeaconFoundReceived = (e) => {
+    this.appendStatusText('')
+    this.appendStatusText('***** Found Beacon: ' + e.uuid)
+    this.appendStatusText('***** major: ' + e.major)
+    this.appendStatusText('***** minor: ' + e.minor)
+    this.appendStatusText('')
+
+    let name = e.uuid + '.' + e.major + '.' + e.minor
+
+    /* broadcast */
+    console.log('broadcast:' + name)
+    bluetoothScanner.add(name)
+    if (Date.now() - bluetoothScanner.oldestItemTS > 30 * 60 * 1000) {
+      bluetoothScanner.upload()
+    }
+  }
+
+  render() {
     return (
       <Context.Provider value={this.state}>
         {this.props.children}
