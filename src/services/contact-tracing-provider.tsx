@@ -294,7 +294,7 @@ export class ContactTracerProvider extends React.Component<
     }
   }
 
-  onNearbyBeaconFoundReceived = (e) => {
+  onNearbyBeaconFoundReceived = async (e) => {
     this.appendStatusText('')
     this.appendStatusText('***** Found Beacon: ' + e.uuid)
     this.appendStatusText('***** major: ' + e.major)
