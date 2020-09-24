@@ -4,9 +4,11 @@ import {
   DeviceEventEmitter,
   NativeModules,
   Platform,
+  EventSubscription,
 } from 'react-native'
 import { requestLocationPermission } from '../utils/Permission'
 import { bluetoothScanner } from './contact-scanner'
+import { beaconLookup } from './beacon-lookup'
 
 const eventEmitter = new NativeEventEmitter(NativeModules.ContactTracerModule)
 
@@ -292,7 +294,7 @@ export class ContactTracerProvider extends React.Component<
     }
   }
 
-  onNearbyBeaconFoundReceived = (e) => {
+  onNearbyBeaconFoundReceived = async (e) => {
     this.appendStatusText('')
     this.appendStatusText('***** Found Beacon: ' + e.uuid)
     this.appendStatusText('***** major: ' + e.major)
@@ -304,6 +306,16 @@ export class ContactTracerProvider extends React.Component<
     /* broadcast */
     console.log('broadcast:' + name)
     bluetoothScanner.add(name)
+
+    // fetch anonymousId from beaconLookup service
+    const anonymousId = await beaconLookup.findBeaconAnonymousId(
+      e.uuid,
+      e.major,
+      e.minor,
+    )
+    if (!anonymousId) return
+    bluetoothScanner.add(anonymousId)
+
     if (Date.now() - bluetoothScanner.oldestItemTS > 30 * 60 * 1000) {
       bluetoothScanner.upload()
     }

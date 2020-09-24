@@ -151,3 +151,21 @@ export const scan = async (
     }),
   })
 }
+
+export const getBeacon = async (uuid: string, major: number, minor: number) => {
+  return fetch(
+    API_URL +
+      '/beacon?' +
+      new URLSearchParams({
+        uuid,
+        major: major.toString(),
+        minor: minor.toString(),
+      }),
+    {
+      method: 'GET',
+      sslPinning: {
+        certs: [SSL_PINNING_CERT_NAME],
+      },
+    },
+  )
+}
