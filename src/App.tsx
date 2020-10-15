@@ -1,5 +1,10 @@
-import React, { Component, Context } from 'react'
-import { NativeModules, Dimensions, Linking, AppState, AppStateStatus } from 'react-native'
+import React from 'react'
+import {
+  NativeModules,
+  Dimensions,
+  AppState,
+  AppStateStatus,
+} from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import AsyncStorage from '@react-native-community/async-storage'
 import { createAppContainer } from 'react-navigation'
@@ -22,6 +27,7 @@ import { pushNotification, NOTIFICATION_TYPES } from './services/notification'
 import { refetchJWKs } from './utils/jwt'
 import { refetchDDCPublicKey } from './utils/crypto'
 import I18n from '../i18n/i18n'
+import { ErrorHandler } from './ExceptionHandler'
 
 const AppContainer = createAppContainer(Navigator)
 
@@ -39,8 +45,9 @@ class App extends React.Component {
       loaded: false,
     }
   }
-  componentDidMount() {    
-    this.load().catch(err => {
+  componentDidMount() {
+    // Sentry.nativeCrash();
+    this.load().catch((err) => {
       console.log('err', err)
       Alert.alert('Load app failed')
     })
@@ -61,17 +68,20 @@ class App extends React.Component {
     } else {
       I18n.locale = 'th'
     }
-    
 
-    await Promise.all([applicationState.load(), userPrivateData.load(), refetchJWKs()])
+    await Promise.all([
+      applicationState.load(),
+      userPrivateData.load(),
+      refetchJWKs(),
+    ])
     await backgroundTracking.setup(
       Boolean(applicationState.getData('isPassedOnboarding')),
     )
 
     await NativeModules.ContactTracerModule.setUserId(
       userPrivateData.getAnonymousId(),
-    )    
-    AppState.addEventListener('change', this.handleAppStateChange)    
+    )
+    AppState.addEventListener('change', this.handleAppStateChange)
 
     refetchDDCPublicKey()
     this.setState({ loaded: true }, () => {
@@ -92,7 +102,7 @@ class App extends React.Component {
     }
   }
   onNavigatorLoaded() {
-    pushNotification.configure(this.onNotification)    
+    pushNotification.configure(this.onNotification)
   }
   onNotification = (notification) => {
     const notificationData = notification?.data?.data || notification?.data
@@ -110,7 +120,7 @@ class App extends React.Component {
             uri: notificationData.url,
             onClose: () => {
               navigation.pop()
-            }
+            },
           })
         }
         break
@@ -125,38 +135,42 @@ class App extends React.Component {
     const theme = this.getTheme()
 
     return (
-      <ThemeProvider theme={theme}>
-        <ContactTracerProvider
-          anonymousId={userPrivateData.getAnonymousId()}
-          isPassedOnboarding={applicationState.getData('isPassedOnboarding')}
-        >
-          <SafeAreaProvider>
-            <HUDProvider>
-              <View style={{ flex: 1, backgroundColor: COLORS.PRIMARY_DARK }}>
-                <AppContainer
-                  uriPrefix="morchana://"
-                  ref={navigator => {
-                    if (!this._navigator) {
-                      this._navigator = navigator
-                      this.onNavigatorLoaded()
-                    }                    
-                  }}
-                />
-              </View>
-            </HUDProvider>
-          </SafeAreaProvider>
-        </ContactTracerProvider>
-      </ThemeProvider>
+      <ErrorHandler>
+        <ThemeProvider theme={theme}>
+          <ContactTracerProvider
+            anonymousId={userPrivateData.getAnonymousId()}
+            isPassedOnboarding={applicationState.getData('isPassedOnboarding')}
+          >
+            <SafeAreaProvider>
+              <HUDProvider>
+                <View style={{ flex: 1, backgroundColor: COLORS.PRIMARY_DARK }}>
+                  <AppContainer
+                    uriPrefix="morchana://"
+                    ref={(navigator) => {
+                      if (!this._navigator) {
+                        this._navigator = navigator
+                        this.onNavigatorLoaded()
+                      }
+                    }}
+                  />
+                </View>
+              </HUDProvider>
+            </SafeAreaProvider>
+          </ContactTracerProvider>
+        </ThemeProvider>
+      </ErrorHandler>
     )
   }
 }
 
 export default compose(
-  CODEPUSH_DEPLOYMENT_KEY? codePush({
-    // @ts-ignore
-    installMode: codePush.InstallMode.IMMEDIATE,
-    checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
-    deploymentKey: CODEPUSH_DEPLOYMENT_KEY,
-  }): c => c,
+  CODEPUSH_DEPLOYMENT_KEY
+    ? codePush({
+        // @ts-ignore
+        installMode: codePush.InstallMode.IMMEDIATE,
+        checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
+        deploymentKey: CODEPUSH_DEPLOYMENT_KEY,
+      })
+    : (c) => c,
   withSystemAvailable,
 )(App)

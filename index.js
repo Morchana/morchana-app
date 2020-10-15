@@ -11,11 +11,11 @@ Text.defaultProps.allowFontScaling = false
 KeyboardAvoidingView.defaultProps.behavior =
   Platform.OS == 'ios' ? 'padding' : null
 
-if (process.env.NODE_ENV === 'production') {
-  Sentry.init({
-    dsn: 'https://9ba1ba3df3174145b8d276c9d84b6b52@sentry.io/5175128',
-  })
-}
+// if (process.env.NODE_ENV === 'production') {
+Sentry.init({
+  dsn: 'https://9ba1ba3df3174145b8d276c9d84b6b52@sentry.io/5175128',
+})
+// }
 
 // Make BackgroundGeolocation API global for handy access in Javascript Debugger console
 global.BackgroundGeolocation = BackgroundGeolocation
@@ -28,7 +28,7 @@ AppRegistry.registerComponent('ThaiAlert', () => App)
  * BackgroundGeolocation Headless JS task.
  * For more information, see:  https://github.com/transistorsoft/react-native-background-geolocation/wiki/Android-Headless-Mode
  */
-let BackgroundGeolocationHeadlessTask = async event => {
+let BackgroundGeolocationHeadlessTask = async (event) => {
   let params = event.params
   console.log('[BackgroundGeolocation HeadlessTask] -', event.name, params)
 
@@ -56,7 +56,7 @@ BackgroundGeolocation.registerHeadlessTask(BackgroundGeolocationHeadlessTask)
  * BackgroundFetch Headless JS Task.
  * For more information, see:  https://github.com/transistorsoft/react-native-background-fetch#config-boolean-enableheadless-false
  */
-let BackgroundFetchHeadlessTask = async event => {
+let BackgroundFetchHeadlessTask = async (event) => {
   console.log('[BackgroundFetch HeadlessTask] start')
   // Important:  await asychronous tasks when using HeadlessJS.
   /* DISABLED
