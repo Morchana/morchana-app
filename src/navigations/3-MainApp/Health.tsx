@@ -17,7 +17,7 @@ import { Input, Button } from 'react-native-elements'
 
 type ConnectionStatus = 'CONNECTED' | 'DISCONNECT' | 'NEVER_CONNECT'
 
-export const Health = () => {
+export const Health = ({ navigation }) => {
   const [status, setStatus] = useState<ConnectionStatus>('NEVER_CONNECT')
   const [macAddress, setMacAddress] = useState<string>('')
   const [loadMacAddress, setLoadMacAddress] = useState<boolean>(true)
@@ -38,13 +38,18 @@ export const Health = () => {
   }, [status])
 
   useEffect(() => {
-    AsyncStorage.getItem('macAddress').then((id) => {
-      if (id) {
-        setMacAddress(id)
-      }
-      setLoadMacAddress(false)
-    })
+    syncMacAddress()
   }, [])
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('didFocus', () => {
+      syncMacAddress()
+    })
+    return () => {
+      unsubscribe.remove()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [navigation])
 
   useEffect(() => {
     if (macAddress) {
@@ -66,6 +71,15 @@ export const Health = () => {
       setValues(null)
     }
   }, [macAddress])
+
+  const syncMacAddress = () => {
+    AsyncStorage.getItem('macAddress').then((id) => {
+      if (id) {
+        setMacAddress(id)
+      }
+      setLoadMacAddress(false)
+    })
+  }
 
   const onSaveMacAddress = (data: string) => {
     AsyncStorage.setItem('macAddress', data)
