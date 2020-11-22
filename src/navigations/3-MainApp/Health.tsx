@@ -254,12 +254,14 @@ const MacAddressInput = (props: {
               type={'clear'}
               onPress={onPress}
             />
-            <Button
-              titleStyle={styles.boxMacAddressButton}
-              title={I18n.t('cancel')}
-              type={'clear'}
-              onPress={onCancel}
-            />
+            {!!props.macAddress && (
+              <Button
+                titleStyle={styles.boxMacAddressButton}
+                title={I18n.t('cancel')}
+                type={'clear'}
+                onPress={onCancel}
+              />
+            )}
           </View>
         )}
       </View>
