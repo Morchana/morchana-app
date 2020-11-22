@@ -243,7 +243,7 @@ const MacAddressInput = (props: {
           label={'MAC address'}
           value={macAddress}
           onChangeText={onChange}
-          placeholder={'Please input mac accress'}
+          placeholder={'Please input mac address'}
           disabled={!isEdit}
         />
         {isEdit && (
