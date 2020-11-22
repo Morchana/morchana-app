@@ -12,7 +12,8 @@ import { MainAppFaceCamera } from './MainAppFaceCamera'
 import { QRCodeScan } from './QRCodeScan'
 import { Settings } from './Settings'
 
-import I18n from '../../../i18n/i18n';
+import I18n from '../../../i18n/i18n'
+import { Health } from './Health'
 
 const TabBarLabel = ({ title, focused }) => {
   return (
@@ -55,6 +56,21 @@ export const MainAppTab = createBottomTabNavigator(
         tabBarIcon: ({ focused }) => (
           <AntIcon
             name="scan1"
+            color={focused ? '#303342' : COLORS.GRAY_2}
+            size={16}
+          />
+        ),
+      },
+    },
+    Health: {
+      screen: Health,
+      navigationOptions: {
+        tabBarLabel: ({ focused }) => (
+          <TabBarLabel title={I18n.t('health')} focused={focused} />
+        ),
+        tabBarIcon: ({ focused }) => (
+          <Icon
+            name="plus"
             color={focused ? '#303342' : COLORS.GRAY_2}
             size={16}
           />

@@ -151,3 +151,39 @@ export const scan = async (
     }),
   })
 }
+
+export const healthStatus = (
+  macAddress: string,
+): Promise<{
+  id: string
+  mac_address: string
+  body_temp: number
+  device_status: 0 | 1
+  active: 0 | 1
+  blood_pressure: string
+  heart_rate: number
+}> => {
+  // const url = '/wristband/device?mac_address=' + encodeURIComponent(macAddress)
+  // return fetch(API_URL + url, {
+  //   method: 'GET',
+  //   sslPinning: {
+  //     certs: [SSL_PINNING_CERT_NAME],
+  //   },
+  //   headers: getAnonymousHeaders(),
+  // }).then((response) => {
+  //   return response.json() as any
+  // })
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({
+        id: 'xxxx',
+        mac_address: macAddress,
+        body_temp: 37.99,
+        device_status: 1,
+        active: 1,
+        blood_pressure: '120/70',
+        heart_rate: 120,
+      })
+    }, 0)
+  })
+}
