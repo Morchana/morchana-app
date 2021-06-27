@@ -7,7 +7,7 @@ import {
   NavigationActions,
 } from 'react-navigation'
 import { COLORS } from '../styles'
-import { AuthStack } from './1-Auth/AuthStack'
+import { AuthStack, PhuketAuthStack } from './1-Auth/AuthStack'
 import { OnboardingStack } from './2-Onboarding/OnboardingStack'
 import { MainAppStack } from './3-MainApp/MainAppStack'
 import { applicationState } from '../state/app-state'
@@ -16,7 +16,7 @@ import { PrivacyPolicy } from './PrivacyPolicy'
 import { HomeStack } from './0-Home/HomeStack'
 import { WebviewScreen } from './Webview'
 import { ChangeLanguageScreen } from './ChangeLanguage'
-import { Debug } from './3-MainApp/Debug'
+import { PhuketSanboxAgreementPolicy } from './5-ProvinceSandbox/SanboxAgreementPolicy'
 
 const Root = ({ navigation }) => {
   useEffect(() => {
@@ -68,6 +68,9 @@ export default createStackNavigator(
     Auth: {
       screen: AuthStack,
     },
+    PhuketAuth: {
+      screen: PhuketAuthStack,
+    },
     Onboarding: {
       screen: OnboardingStack,
     },
@@ -85,6 +88,9 @@ export default createStackNavigator(
     },
     ChangeLanguage: {
       screen: ChangeLanguageScreen,
+    },
+    PhuketSanboxPolicy: {
+      screen: PhuketSanboxAgreementPolicy,
     },
   },
   {

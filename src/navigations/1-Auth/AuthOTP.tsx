@@ -33,7 +33,12 @@ function formatPhoneNumber(phoneNumberString) {
   return null
 }
 
-export const AuthOTP = () => {
+type Props = {
+  submit?: (mobileNumber: string, opt: string) => Promise<any>
+  cancel?: () => void
+}
+
+export const AuthOTP: React.FC<Props> = ({ submit, cancel }) => {
   const { showSpinner, hide } = useHUD()
   const navigation = useNavigation()
   const phone = navigation.getParam('phone')
@@ -45,6 +50,11 @@ export const AuthOTP = () => {
   const mobileNumber = navigation.state.params.phone
   const onSubmit = async () => {
     showSpinner()
+
+    if (submit) {
+      submit(mobileNumber.replace(/-/g, ''), otp).then(hide)
+      return
+    }
     try {
       const bool = await mobileParing(mobileNumber.replace(/-/g, ''), otp)
       if (!bool) {
@@ -148,20 +158,24 @@ export const AuthOTP = () => {
           />
           <TouchableOpacity
             style={{ marginTop: 8 }}
-            onPress={() => {
-              applicationState.setData('skipRegistration', true)
-              if (applicationState.getData('isPassedOnboarding')) {
-                resetTo({ routeName: 'MainApp' })
-              } else {
-                navigation.navigate({
-                  routeName: 'Onboarding',
-                  params: { phone },
-                })
-              }
-            }}
+            onPress={
+              cancel
+                ? cancel
+                : () => {
+                    applicationState.setData('skipRegistration', true)
+                    if (applicationState.getData('isPassedOnboarding')) {
+                      resetTo({ routeName: 'MainApp' })
+                    } else {
+                      navigation.navigate({
+                        routeName: 'Onboarding',
+                        params: { phone },
+                      })
+                    }
+                  }
+            }
           >
             <Link style={{ color: '#576675', textDecorationLine: 'underline' }}>
-              {I18n.t('use_without_iden_confirm')} >
+              {I18n.t('use_without_iden_confirm')}
             </Link>
           </TouchableOpacity>
         </View>

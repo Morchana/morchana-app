@@ -37,6 +37,7 @@ class App extends React.Component {
   state: {
     loaded: boolean
     activateCallback?: Function
+    notificationTriggerNumber?: number
   }
   appState: AppStateStatus
   constructor(props) {
@@ -72,7 +73,7 @@ class App extends React.Component {
         applicationState.load(),
         userPrivateData.load(),
         refetchJWKs(),
-      ])
+      ]).catch((e) => console.log('CREDENTIAL ERROR', e))
 
     const setUpId = () =>
       NativeModules.ContactTracerModule.setUserId(
@@ -116,6 +117,11 @@ class App extends React.Component {
     pushNotification.configure(this.onNotification)
   }
   onNotification = (notification) => {
+    this.setState({
+      notificationTriggerNumber:
+        (this.state.notificationTriggerNumber ?? 0) + 1,
+    })
+
     const notificationData = notification?.data?.data || notification?.data
     if (!notificationData?.type) {
       return
@@ -150,6 +156,7 @@ class App extends React.Component {
         <ContactTracerProvider
           anonymousId={userPrivateData.getAnonymousId()}
           isPassedOnboarding={applicationState.getData('isPassedOnboarding')}
+          notificationTriggerNumber={this.state.notificationTriggerNumber ?? 0}
         >
           <SafeAreaProvider>
             <HUDProvider>

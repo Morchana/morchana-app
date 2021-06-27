@@ -22,7 +22,7 @@ import { useResetTo } from '../../utils/navigation'
 import { FormHeader } from '../../components/Form/FormHeader'
 import I18n from '../../../i18n/i18n';
 
-export const AuthPhone = () => {
+export const AuthPhone = ({ navigationKey }: { navigationKey: string }) => {
   const navigation = useNavigation()
   const { showSpinner, hide } = useHUD()
   const [phone, setPhone] = useState('')
@@ -91,7 +91,7 @@ export const AuthPhone = () => {
                 await requestOTP(mobileNumber)
                 hide()
                 navigation.navigate({
-                  routeName: 'AuthOTP',
+                  routeName: navigationKey || 'AuthOTP',
                   params: { phone: mobileNumber },
                 })
               } catch (err) {

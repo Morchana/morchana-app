@@ -79,11 +79,9 @@ export default {
   settings: 'ตั้งค่า',
   risk: 'ความเสี่ยง',
   scan_result: 'ผลลัพธ์การสแกน',
-  low_risk: 'เสี่ยงน้อย',
   data_at: 'ข้อมูลวันที่',
   por_sor: 'พ.ศ',
   scan_again: 'สแกนใหม่อีกครั้ง',
-  risk_level: 'ระดับความเสี่ยง',
   wrong_data: 'ข้อมูลไม่ถูกต้อง',
   record_contact_and_estimate_risk:
     'เพื่อบันทึกการเข้าใกล้และตรวจสอบความเสี่ยง',
@@ -271,4 +269,12 @@ export default {
   change_lang: 'เปลี่ยนภาษา',
   back: 'ย้อนกลับ',
   beacon_header: 'คุณได้พบ Beacon',
+  notification_history: 'แจ้งเตือน',
+  notification_history_empty: 'ไม่มีการแจ้งเตือน',
+  phuket_sandbox_setting: 'ยืนยันตัวตนด้วยโทรศัพท์มือถือ',
+  phuket_sandbox_setting2: 'จังหวัดภูเก็ต',
+  bluetooth_disable_alert_title: 'นี้ไม่ใช่เป็นการปิดบลูทูธ!',
+  bluetooth_disable_alert_message:
+    'คุณจะไม่ได้รับการแจ้งเตือนหากคุณเข้าใกล้ผู้มีความเสี่ยง',
+  bluetooth_disable_alert_accept: 'ปิดการค้นหาบุคคลอื่นผ่านบลูทูธ',
 }

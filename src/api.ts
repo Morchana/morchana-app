@@ -7,15 +7,20 @@ import {
   SHOP_API_KEY,
   SHOP_API_NAME,
   SHOP_API_URL,
-  SHOP_QR_PINNING_CERT
+  SHOP_QR_PINNING_CERT,
+  PHUKET_API_URL,
+  PHUKET_SSL_PINNING_CERT_NAME,
 } from './config'
 import { encryptMessage, refetchDDCPublicKey } from './utils/crypto'
 import { fetch } from 'react-native-ssl-pinning'
 
+const USE_PHUKET_API = true
+const OTP_URL = USE_PHUKET_API && PHUKET_API_URL ? PHUKET_API_URL : API_URL
+
 export const getAnonymousHeaders = () => {
   const authToken = userPrivateData.getData('authToken')
   return {
-    Authorization: authToken ? 'Bearer ' + authToken : void 0,
+    Authorization: authToken ? 'Bearer ' + authToken : '',
     'X-TH-ANONYMOUS-ID': userPrivateData.getAnonymousId(),
     'Content-Type': 'application/json',
   }
@@ -59,11 +64,47 @@ export const registerDevice = async (): Promise<{
   return { anonymousId: result.anonymousId, token: result.token }
 }
 
-export const requestOTP = async (mobileNo: string) => {
-  const resp = await fetch(API_URL + `/requestOTP`, {
+export const registerDeviceForPhuket = async (
+  mobileNo: string,
+): Promise<boolean> => {
+  console.log('registerDeviceForPhuket url', PHUKET_API_URL + `/registerDevice`)
+  const resp = await fetch(PHUKET_API_URL + `/registerDevice`, {
     method: 'POST',
     sslPinning: {
-      certs: [SSL_PINNING_CERT_NAME],
+      certs: [PHUKET_SSL_PINNING_CERT_NAME],
+    },
+    headers: {
+      'Content-Type': 'application/json',
+      'X-TH-ANONYMOUS-ID': userPrivateData.getAnonymousId(),
+    },
+    body: JSON.stringify({
+      deviceId: DeviceInfo.getUniqueId(),
+      mobileNo: mobileNo,
+    }),
+  })
+  const result = await resp.json()
+  console.log('registerDeviceForPhuket', result)
+  if (!result || result.status !== 'ok') {
+    throw new Error('RegisterDevice failed')
+  }
+
+  return true
+}
+
+export const requestOTP = async (mobileNo: string) => {
+  const url = OTP_URL + `/requestOTP`
+  console.log(
+    'OTP_URL',
+    url,
+    JSON.stringify({
+      mobileNo /* use to send sms only, store only hashed phone number in server */,
+    }),
+  )
+  console.log('requestOTP', getAnonymousHeaders())
+  const resp = await fetch(url, {
+    method: 'POST',
+    sslPinning: {
+      certs: [PHUKET_SSL_PINNING_CERT_NAME],
     },
     headers: getAnonymousHeaders(),
     body: JSON.stringify({
@@ -76,15 +117,15 @@ export const requestOTP = async (mobileNo: string) => {
 }
 
 /*
-  verify otp and save encryptedMobileNo
+verify otp and save encryptedMobileNo
 */
 export const mobileParing = async (mobileNo: string, otpCode: string) => {
   await refetchDDCPublicKey()
   const encryptedMobileNo = await encryptMessage(mobileNo)
-  const resp = await fetch(API_URL + `/mobileParing`, {
+  const resp = await fetch(OTP_URL + `/mobileParing`, {
     method: 'POST',
     sslPinning: {
-      certs: [SSL_PINNING_CERT_NAME],
+      certs: [PHUKET_SSL_PINNING_CERT_NAME],
     },
     headers: getAnonymousHeaders(),
     body: JSON.stringify({ otpCode, encryptedMobileNo }),
@@ -159,22 +200,30 @@ export const scan = async (
   })
 }
 
-export const beaconinfo = async (uuid: string, major: string, minor: string) => {
-  const resp = await fetch(SHOP_API_URL + '/beaconinfo?' +
-    new URLSearchParams({
-      uuid,
-      major,
-      minor
-    }), {
-    method: 'GET',
-    headers: {
-      'X-TH-SHOP-API-USER': SHOP_API_NAME,
-      'X-TH-SHOP-API-KEY': SHOP_API_KEY,
+export const beaconinfo = async (
+  uuid: string,
+  major: string,
+  minor: string,
+) => {
+  const resp = await fetch(
+    SHOP_API_URL +
+      '/beaconinfo?' +
+      new URLSearchParams({
+        uuid,
+        major,
+        minor,
+      }),
+    {
+      method: 'GET',
+      headers: {
+        'X-TH-SHOP-API-USER': SHOP_API_NAME,
+        'X-TH-SHOP-API-KEY': SHOP_API_KEY,
+      },
+      sslPinning: {
+        certs: [SHOP_QR_PINNING_CERT],
+      },
     },
-    sslPinning: {
-      certs: [SHOP_QR_PINNING_CERT],
-    },
-  })
+  )
   const result = await resp.json()
   return result as any
 }
